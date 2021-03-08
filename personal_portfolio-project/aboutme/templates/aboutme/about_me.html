@@ -4,22 +4,129 @@
 
 {% load static %}
 
-<video width='320' height= '240' controls autoplay loop>
-    <source src="{% static 'aboutme/FEN1819GIF.mp4' type='video/mp4' %}">
-    Your browser does not support the video tag.
-</video>
-<br>
-<a href="{% url 'home' %}">Home</a>
-<br>
+<div class="row justify-content-center my-3">
+    <div class="col-5">
+        <video width='500' height= '375' controls autoplay loop>
+            <source src="{% static 'aboutme/FEN1819GIF1.mp4' type='video/mp4' %}">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+  </div>
 
-{% for aboutme in aboutmes %}
 
-<a href="{% url 'aboutme:detail' aboutme.id %}"><h2>{{ aboutme.title }}</h2></a>
-<p>{{ aboutme.description }}</p>
-{% if project.url %}
-<br><a href="{{ project.url }}">Click me</a>
-{% endif %}
+<div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Quick Background
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" 
+      aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            <ul>
+                <li>
+                    I was born in Los Angeles, CA, but raised in Houston, TX. 
+                </li>
+                <li>
+                    I am a Business Analytics and Chinese Double Major with a Philosophy Minor 
+                    at the University of Notre Dame.
+                </li>
+                <li>
+                    As seen in the GIF above, I am a fencer (and on the Notre Dame Fencing Team). 
+                    It is integral to my identity at this point in my life. 
+                </li>
+            </ul> 
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          Some Interests
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" 
+      aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            <ul>
+                <li>
+                    Learning. I LOVE to learn new skills and improve on the ones that I already have.
+                </li>
+                <li>
+                    Guitar. Electric, Acoustic, Blues, Jazz, Indie, Rock, R&B, Neo-Soul, 
+                    and everything in between. <a href="https://www.youtube.com/watch?v=zssgPmaBwgc">
+                    New-Age Jimi Hendrix Here</a>
+                </li>
+                <li>
+                    Data. Data Science. Understanding Data. Visualizing Data. 
+                </li>
+                <li>
+                    Relationships. Happiness is the richest when it is shared with others. 
+                    Teams. Friends. Family. I love creating new and strengthening existing
+                    interpersonal bonds and connections with the people around me. 
+                </li>
+                <li>
+                    Nature. Being outdoors. Hiking. Going to the beach. Going to the mountains. 
+                    Actively taking time to appreciate the world around me. 
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          Fun Facts
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" 
+      aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+            <ul>
+                <li>
+                    I am a goofy guy. I love having fun and making people smile and laugh. 
+                </li>
+                <li>
+                    My mother is from Kiev, Ukraine (previously USSR), so my sister and I's first
+                    language is Russian. #StillFluent
+                </li>
+                <li>
+                    Through fencing, I have gotten to travel the world! I have traveled to and competed
+                    in over 20 countries! 
+                </li>
+                <li>
+                    I learned the Django Framework for building a website just for this interview!
+                    :-)
+                </li>
+                <li>
+                    Once my hair gets long enough, I will be donating it to either Locks of Love or
+                    Wigs for Kids (TBD)
+                </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-{% endfor %}
+
+<h2 class="mt-5">Some More About Me</h2>
+<hr>
+<div class="row">
+  {% for aboutme in aboutmes %}
+  <div class="col-lg-4 col-md-6">
+
+    <a href="{% url 'aboutme:detail' aboutme.id %}"><h3>{{ aboutme.title }}</h3></a>
+    <p>{{ aboutme.description }}</p>
+    {% if project.url %}
+    <br><a href="{{ project.url }}"><h4>Click Me</h4></a>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock %}
