@@ -27,7 +27,7 @@
         <div class="accordion-body">
             <ul>
                 <li>
-                    I was born in Los Angeles, CA, but raised in Houston, TX. 
+                    I was born in Los Angeles, CA (Dec 1996), but raised in Houston, TX (Since Dec 1999). 
                 </li>
                 <li>
                     I am a Business Analytics and Chinese Double Major with a Philosophy Minor 
@@ -121,8 +121,8 @@
 
     <a href="{% url 'aboutme:detail' aboutme.id %}"><h3>{{ aboutme.title }}</h3></a>
     <p>{{ aboutme.description }}</p>
-    {% if project.url %}
-    <br><a href="{{ project.url }}"><h4>Click Me</h4></a>
+    {% if aboutme.url %}
+    <br><a href="{{ aboutme.url }}"><h4>Click Me</h4></a>
     {% endif %}
 
   </div>

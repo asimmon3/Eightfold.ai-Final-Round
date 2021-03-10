@@ -7,6 +7,8 @@
 <div class="row justify-content-center my-3">
     <div class="col-5">
       <img src="{% static 'aboutyou/eightfoldai.png' %}" class="img-fluid">
+      <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:6774720831621734400" 
+      height="610" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
     </div>
   </div>
 
@@ -24,15 +26,17 @@
         <div class="accordion-body">
             <ul>
                 <li>
-                    I was born in Los Angeles, CA, but raised in Houston, TX. 
+                    Founded in California in 2016 under the name VolkScience. 
                 </li>
                 <li>
-                    I am a Business Analytics and Chinese Double Major with a Philosophy Minor 
-                    at the University of Notre Dame.
+                    Received over $170M in funding. Most recently received Series D Funding in October
+                    2020 for $125M.
                 </li>
                 <li>
-                    As seen in the GIF above, I am a fencer (and on the Notre Dame Fencing Team). 
-                    It is integral to my identity at this point in my life. 
+                    Main product is a platform that aggregates as much people data as possible in order
+                    to learn and match people with the right opportunities for them. It also continues
+                    to learn once the talent has been brought into the organization, so that the talent
+                    can be matched with future roles and career shifts.  
                 </li>
             </ul> 
         </div>
@@ -42,7 +46,7 @@
       <h2 class="accordion-header" id="flush-headingTwo">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-          Some Interests
+          Leadership
         </button>
       </h2>
       <div id="flush-collapseTwo" class="accordion-collapse collapse" 
@@ -50,24 +54,37 @@
         <div class="accordion-body">
             <ul>
                 <li>
-                    Learning. I LOVE to learn new skills and improve on the ones that I already have.
+                    CEO & Co-Founder: Ashutosh Garg
                 </li>
                 <li>
-                    Guitar. Electric, Acoustic, Blues, Jazz, Indie, Rock, R&B, Neo-Soul, 
-                    and everything in between. <a href="https://www.youtube.com/watch?v=zssgPmaBwgc">
-                    New-Age Jimi Hendrix Here</a>
+                    CTO & Co-Founder: Varun Kacholia
                 </li>
                 <li>
-                    Data. Data Science. Understanding Data. Visualizing Data. 
+                    President: Kamal Ahluwalia
                 </li>
                 <li>
-                    Relationships. Happiness is the richest when it is shared with others. 
-                    Teams. Friends. Family. I love creating new and strengthening existing
-                    interpersonal bonds and connections with the people around me. 
+                    Chief Financial Officer: Celia Poon
                 </li>
                 <li>
-                    Nature. Being outdoors. Hiking. Going to the beach. Going to the mountains. 
-                    Actively taking time to appreciate the world around me. 
+                    Chief Revenue Officer: Jeff Griggs
+                </li>
+                <li>
+                    Chief Product Officer: Sachit Kamat
+                </li>
+                <li>
+                    Chief Marketing Officer: Ligia Zamora
+                </li>
+                <li>
+                    VP People: Tracy Flynn
+                </li>
+                <li>
+                    General Counsel: Roy Wang
+                </li>
+                <li>
+                    VP Professional Services: Jen Wilks
+                </li>
+                <li>
+                    Managing Director, India: Sandesh Goel
                 </li>
             </ul>
         </div>
@@ -77,7 +94,7 @@
       <h2 class="accordion-header" id="flush-headingThree">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-          Fun Facts
+          Values
         </button>
       </h2>
       <div id="flush-collapseThree" class="accordion-collapse collapse" 
@@ -85,23 +102,10 @@
         <div class="accordion-body">
             <ul>
                 <li>
-                    I am a goofy guy. I love having fun and making people smile and laugh. 
+                    <strong>Empowering</strong> people to pursue the career path of their choosing.
                 </li>
                 <li>
-                    My mother is from Kiev, Ukraine (previously USSR), so my sister and I's first
-                    language is Russian. #StillFluent
-                </li>
-                <li>
-                    Through fencing, I have gotten to travel the world! I have traveled to and competed
-                    in over 20 countries! 
-                </li>
-                <li>
-                    I learned the Django Framework for building a website just for this interview!
-                    :-)
-                </li>
-                <li>
-                    Once my hair gets long enough, I will be donating it to either Locks of Love or
-                    Wigs for Kids (TBD)
+                    Solving employment
                 </li>
             </ul>
         </div>
@@ -110,17 +114,16 @@
   </div>
 
 
-<h2 class="mt-5">Some More About Me</h2>
+<h2 class="mt-5">Some More About You</h2>
 <hr>
 <div class="row">
-  {% for aboutme in aboutmes %}
+  {% for aboutyou in aboutyous %}
   <div class="col-lg-4 col-md-6">
 
-    <a href="{% url 'aboutme:detail' aboutme.id %}"><h3>{{ aboutme.title }}</h3></a>
-    <p>{{ aboutme.description }}</p>
-    {% if project.url %}
-    <br><a href="{{ project.url }}"><h4>Click Me</h4></a>
-    {% endif %}
+    <img src="{{ aboutyou.image.url }}" class="img-fluid mb-2">
+
+    <a href="{{ aboutyou.url }}"><h3>{{ aboutyou.title }}</h3></a>
+    <p>{{ aboutyou.description }}</p>
 
   </div>
   {% endfor %}
